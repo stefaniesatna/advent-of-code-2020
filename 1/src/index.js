@@ -21,3 +21,17 @@ function multiplyArrItems(arr){
 }
 
 console.log(multiplyArrItems(twoAddToSum(numberArr,givenSum)));
+
+function threeAddToSum(arr, sum){
+    for (let i = 0; i < arr.length - 2; i++){
+        for (let j = 1; j < arr.length - 1; j++){
+            for (let k = 2; k < arr.length; k++){
+                if (arr[i] + arr[j] + arr[k] === sum){
+                    return [arr[i], arr[j], arr[k]];
+                }
+            }
+        }
+    }
+}
+
+console.log(multiplyArrItems(threeAddToSum(numberArr, givenSum)));
