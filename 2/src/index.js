@@ -10,17 +10,17 @@ const newArr = arr.map(str => ({
                      max : parseInt(str.match(/\d+\s/)[0]),
                      letter: str.match(/\w:/)[0].replace(/:/, "")
                  }));
-// let passworded = newArr[3].password;
-// console.log(passworded);
-console.log(newArr);
+                 
+                 
+function validPasswordCount(arr){
+    let countPassword = 0;
+    for (let obj of arr){
+        let count = obj.password.split("").filter(x => x === obj.letter).length;
+        if (count >= obj.min && count <= obj.max){
+            countPassword++;
+        }
+    }
+    return countPassword;
+}   
 
-// for (let i = 0; i < newArr.length; i++){
-//     if (!regPassword.test(newArr[i])){
-//         console.log("here's the failed object:", newArr[i]);
-//     }
-//     else {
-//         console.log("I ran over it!", i);
-//     }
-// }
-// console.log(newArr.length - 1);
-// console.log(newArr[-1]);
+console.log(validPasswordCount(newArr));
