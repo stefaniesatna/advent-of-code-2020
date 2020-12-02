@@ -11,8 +11,8 @@ const newArr = arr.map(str => ({
                      letter: str.match(/\w:/)[0].replace(/:/, "")
                  }));
                  
-                 
-function validPasswordCount(arr){
+// Solution for part 1           
+function validPasswordSled(arr){
     let countPassword = 0;
     for (let obj of arr){
         let count = obj.password.split("").filter(x => x === obj.letter).length;
@@ -23,4 +23,20 @@ function validPasswordCount(arr){
     return countPassword;
 }   
 
-console.log(validPasswordCount(newArr));
+// console.log(validPasswordSled(newArr));
+
+// Solution for part 2
+function validPasswordToboggan(arr){
+    let countPassword = 0;
+    for (let obj of arr){
+        if (obj.password[obj.min - 1] === obj.letter && !(obj.password[obj.max - 1] === obj.letter)){
+            countPassword++;
+        }
+        else if (!(obj.password[obj.min - 1] === obj.letter) && obj.password[obj.max - 1] === obj.letter){
+            countPassword++;
+        }
+    }
+    return countPassword;
+} 
+
+console.log(validPasswordToboggan(newArr));
