@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 
-const inputPath = path.resolve(__dirname, "input.txt")
+const inputPath = path.resolve(__dirname, "input-day1.txt")
 const numberArr = fs.readFileSync(inputPath, "utf-8").split("\n").map(x => parseInt(x))
 
 const givenSum = 2020;
